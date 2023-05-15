@@ -51,7 +51,7 @@ int tree_height(const binary_tree_t *tree)
 	}
 }
 /**
- * binary_tree_size - calculates the size of a tree
+ * tree_size - calculates the size of a tree
  *
  * @tree: a tree
  *
@@ -84,13 +84,16 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	size_t left_size, right_size;
 	int balance;
 
-	left_size = tree_size(tree->left);
-	right_size = tree_size(tree->right);
-	balance = binary_tree_balance(tree);
-
-	if (balance == 0 && (left_size == right_size))
+	if (tree != NULL)
 	{
-		return (1);
+		left_size = tree_size(tree->left);
+		right_size = tree_size(tree->right);
+		balance = binary_tree_balance(tree);
+
+		if (balance == 0 && (left_size == right_size))
+		{
+			return (1);
+		}
 	}
 	return (0);
 }
